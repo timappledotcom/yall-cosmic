@@ -89,7 +89,16 @@ install:
 
 # Uninstalls installed files
 uninstall:
-    rm {{bin-dst}} {{desktop-dst}} {{icon-16-dst}} {{icon-32-dst}} {{icon-48-dst}} {{icon-64-dst}} {{icon-128-dst}} {{icon-svg-dst}}
+    -rm -f {{bin-dst}}
+    -rm -f {{desktop-dst}}
+    -rm -f {{appdata-dst}}
+    -rm -f {{icon-16-dst}}
+    -rm -f {{icon-32-dst}}
+    -rm -f {{icon-48-dst}}
+    -rm -f {{icon-64-dst}}
+    -rm -f {{icon-128-dst}}
+    -rm -f {{icon-svg-dst}}
+    @echo "Uninstall complete. You may want to run 'gtk-update-icon-cache' to update the icon cache."
 
 # Vendor dependencies locally
 vendor:
