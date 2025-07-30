@@ -20,6 +20,22 @@ appdata-dst := clean(rootdir / prefix) / 'share' / 'appdata' / appdata
 icons-src := 'resources' / 'icons' / 'hicolor'
 icons-dst := clean(rootdir / prefix) / 'share' / 'icons' / 'hicolor'
 
+# Icon files for different sizes
+icon-16-src := icons-src / '16x16' / 'apps' / 'icon.png'
+icon-16-dst := icons-dst / '16x16' / 'apps' / appid + '.png'
+
+icon-32-src := icons-src / '32x32' / 'apps' / 'icon.png'
+icon-32-dst := icons-dst / '32x32' / 'apps' / appid + '.png'
+
+icon-48-src := icons-src / '48x48' / 'apps' / 'icon.png'
+icon-48-dst := icons-dst / '48x48' / 'apps' / appid + '.png'
+
+icon-64-src := icons-src / '64x64' / 'apps' / 'icon.png'
+icon-64-dst := icons-dst / '64x64' / 'apps' / appid + '.png'
+
+icon-128-src := icons-src / '128x128' / 'apps' / 'icon.png'
+icon-128-dst := icons-dst / '128x128' / 'apps' / appid + '.png'
+
 icon-svg-src := icons-src / 'scalable' / 'apps' / 'icon.svg'
 icon-svg-dst := icons-dst / 'scalable' / 'apps' / appid + '.svg'
 
@@ -63,11 +79,17 @@ install:
     install -Dm0755 {{bin-src}} {{bin-dst}}
     install -Dm0644 {{desktop-src}} {{desktop-dst}}
     install -Dm0644 {{appdata-src}} {{appdata-dst}}
+    install -Dm0644 {{icon-16-src}} {{icon-16-dst}}
+    install -Dm0644 {{icon-32-src}} {{icon-32-dst}}
+    install -Dm0644 {{icon-48-src}} {{icon-48-dst}}
+    install -Dm0644 {{icon-64-src}} {{icon-64-dst}}
+    install -Dm0644 {{icon-128-src}} {{icon-128-dst}}
     install -Dm0644 {{icon-svg-src}} {{icon-svg-dst}}
+    @echo "Installation complete. You may need to run 'gtk-update-icon-cache' or restart your desktop session to see the icon."
 
 # Uninstalls installed files
 uninstall:
-    rm {{bin-dst}} {{desktop-dst}} {{icon-svg-dst}}
+    rm {{bin-dst}} {{desktop-dst}} {{icon-16-dst}} {{icon-32-dst}} {{icon-48-dst}} {{icon-64-dst}} {{icon-128-dst}} {{icon-svg-dst}}
 
 # Vendor dependencies locally
 vendor:

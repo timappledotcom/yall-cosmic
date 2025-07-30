@@ -47,6 +47,9 @@ sudo just install
 # Or install to a custom location
 just rootdir=/path/to/install prefix=/usr install
 
+# Update icon cache (may be needed for the dock icon to appear)
+sudo gtk-update-icon-cache /usr/share/icons/hicolor/ || true
+
 # The applet will be installed to the system and available in COSMIC panel configuration
 ```
 
