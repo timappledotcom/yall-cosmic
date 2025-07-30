@@ -1,6 +1,80 @@
 # Yall Cosmic
 
-A Cosmic applet that allows posting to Nostr, Mastodon, and Bat once
+A compact COSMIC application for posting to multiple social media platforms (Bluesky, Mastodon, Micro.Blog, and Nostr) simultaneously. Features a clean, focused interface optimized for quick social media posting.
+
+## Features
+
+- **Multi-platform posting**: Post to Bluesky, Mastodon, Micro.Blog, and Nostr simultaneously
+- **Secure credential storage**: All sensitive credentials are encrypted using AES-256-GCM
+- **Account management**: Configure credentials for each platform with validation
+- **Smart character limits**: 500 character limit with platform-specific handling (Bluesky auto-truncates at 300)
+- **Native COSMIC application**: Built with libcosmic for seamless COSMIC desktop integration
+- **Optimized UI**: Multi-line text editor popup with word wrapping for comfortable 500-character composition
+
+## Setup
+
+### Bluesky
+1. Go to Settings tab
+2. Enable Bluesky
+3. Enter your handle (e.g., `username.bsky.social`)
+4. Generate an app password at https://bsky.app/settings/app-passwords
+5. Enter the app password (not your main password)
+
+### Mastodon
+1. Go to Settings tab
+2. Enable Mastodon
+3. Enter your instance URL (e.g., `https://mastodon.social`)
+4. Generate an access token from your instance's developer settings
+5. Enter the access token
+
+### Nostr
+1. Go to Settings tab
+2. Enable Nostr
+3. Enter your private key in hex format
+4. Add relay URLs (e.g., `wss://relay.damus.io`)
+5. You can add multiple relays for better reach
+
+## Installation
+
+### From Source
+```bash
+# Build the applet
+just build-debug  # Use debug build for now due to renderer configuration
+
+# Install system-wide (requires sudo for system directories)
+sudo just install
+
+# Or install to a custom location
+just rootdir=/path/to/install prefix=/usr install
+
+# The applet will be installed to the system and available in COSMIC panel configuration
+```
+
+### Launching the Application
+1. Install using the instructions above
+2. Launch from the COSMIC applications menu or run `yall-cosmic` from terminal
+3. The application will open with a compact, focused interface
+4. You can minimize it to the taskbar when not in use
+
+## Security
+
+Yall Cosmic takes credential security seriously:
+
+- **Encrypted Storage**: All sensitive credentials (passwords, tokens, private keys) are encrypted using AES-256-GCM before being stored
+- **Key Derivation**: Encryption keys are derived using Argon2 with machine-specific entropy
+- **Memory Safety**: Credentials are automatically zeroed from memory when no longer needed
+- **No Plain Text**: Sensitive data is never stored in plain text on disk
+
+The encryption key is derived from machine-specific information, making credentials tied to your specific device.
+
+## Usage
+
+1. Launch Yall Cosmic from the applications menu or terminal
+2. Switch between Compose and Settings tabs using the buttons
+3. In Compose: Type your message (max 500 characters, Bluesky posts auto-truncated at 300) and click "Post"
+4. In Settings: Configure your social media accounts with input validation
+5. Status messages will show posting progress and results
+6. Minimize or close the window when done
 
 ## Installation
 

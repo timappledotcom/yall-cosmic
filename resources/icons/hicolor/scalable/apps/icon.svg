@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"/>
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#4A90E2" stroke="#2E5C8A" stroke-width="2"/>
+  
+  <!-- Y'all text in bold italics -->
+  <text x="64" y="72" 
+        font-family="Arial, sans-serif" 
+        font-size="28" 
+        font-weight="bold" 
+        font-style="italic" 
+        fill="white" 
+        text-anchor="middle" 
+        dominant-baseline="middle">Y'all</text>
+</svg>

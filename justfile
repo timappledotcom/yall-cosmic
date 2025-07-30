@@ -1,5 +1,5 @@
 name := 'yall-cosmic'
-appid := 'com.github.pop-os.cosmic-app-template'
+appid := 'com.github.pop-os.yall-cosmic-applet'
 
 rootdir := ''
 prefix := '/usr'
@@ -9,11 +9,11 @@ base-dir := absolute_path(clean(rootdir / prefix))
 bin-src := 'target' / 'release' / name
 bin-dst := base-dir / 'bin' / name
 
-desktop := appid + '.desktop'
+desktop := name + '.desktop'
 desktop-src := 'resources' / desktop
 desktop-dst := clean(rootdir / prefix) / 'share' / 'applications' / desktop
 
-appdata := appid + '.metainfo.xml'
+appdata := 'app.metainfo.xml'
 appdata-src := 'resources' / appdata
 appdata-dst := clean(rootdir / prefix) / 'share' / 'appdata' / appdata
 
@@ -61,8 +61,8 @@ run *args:
 # Installs files
 install:
     install -Dm0755 {{bin-src}} {{bin-dst}}
-    install -Dm0644 resources/app.desktop {{desktop-dst}}
-    install -Dm0644 resources/app.metainfo.xml {{appdata-dst}}
+    install -Dm0644 {{desktop-src}} {{desktop-dst}}
+    install -Dm0644 {{appdata-src}} {{appdata-dst}}
     install -Dm0644 {{icon-svg-src}} {{icon-svg-dst}}
 
 # Uninstalls installed files

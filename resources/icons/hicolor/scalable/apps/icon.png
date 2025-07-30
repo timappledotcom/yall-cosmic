@@ -1,0 +1,9 @@
+(This is a placeholder. Please convert your SVG to PNG using a tool like Inkscape or ImageMagick, e.g.:
+
+inkscape icon.svg --export-type=png --export-filename=icon.png --export-width=128 --export-height=128
+
+or
+
+convert icon.svg icon.png
+
+Then place the PNG here.)

@@ -2,7 +2,7 @@
 Name=Yall Cosmic
 Comment=Post to Bluesky, Mastodon, Micro.Blog, and Nostr simultaneously
 Type=Application
-Icon=icon
+Icon=com.github.pop-os.yall-cosmic-applet
 Exec=yall-cosmic
 Terminal=false
 StartupNotify=true

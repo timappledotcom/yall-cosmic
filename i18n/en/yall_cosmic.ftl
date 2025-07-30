@@ -12,6 +12,7 @@ accounts = Accounts
 post-placeholder = What's happening?
 post-button = Post
 character-count = { $count }/{ $limit }
+bluesky-truncate-warning = ⚠️ Bluesky posts will be truncated to { $limit } characters
 
 # Account settings
 bluesky-settings = Bluesky Settings
